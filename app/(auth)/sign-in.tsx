@@ -1,9 +1,4 @@
-import {
-  codeSchema,
-  SignInFormValues,
-  signInSchema,
-  SingInFormSchema,
-} from "@/lib/schemas/auth";
+import { codeSchema, SignInFormValues, signInSchema } from "@/lib/schemas/auth";
 import { useSignIn } from "@clerk/expo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useRouter } from "expo-router";
@@ -27,7 +22,7 @@ export default function SignIn() {
     control,
     handleSubmit,
     formState: { errors: formErrors },
-  } = useForm<SingInFormSchema>({
+  } = useForm<SignInFormValues>({
     resolver: zodResolver(signInSchema),
     mode: "onBlur",
     defaultValues: { email: "", password: "" },
